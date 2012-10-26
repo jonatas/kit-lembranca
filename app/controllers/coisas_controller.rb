@@ -31,6 +31,21 @@ class CoisasController < ApplicationController
       format.json { render :json => @coisa }
     end
   end
+  # GET /coisas/por_tags
+  def por_tags
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => @tags}
+    end
+  end
+  def tag
+    @coisas = Coisa.by_tags[params[:tag]]
+    respond_to do |format|
+      format.html
+      format.json { render :json => @coisas}
+    end   
+  end
 
   # GET /coisas/1/edit
   def edit
@@ -78,6 +93,17 @@ class CoisasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to coisas_url }
       format.json { head :no_content }
+    end
+  end
+  def produtividade
+    ver = %w(de_hoje esta_semana este_mes)
+    @produtividade = { }
+    ver.each do |tempo|
+      @produtividade[tempo] = Coisa.send(tempo).count
+    end
+   respond_to do |format|
+      format.html
+      format.json { render :json => @produtividade }
     end
   end
 end

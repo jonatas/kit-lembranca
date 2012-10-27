@@ -1,0 +1,4 @@
+<h1>Produtividade de aprendizado de coisas</h1>
+<% @produtividade.each do |oque, quantos| %>
+  <p class="big"><span style="color: <%= Meta.cor(oque.to_sym,quantos) %>"><%= quantos %></span> <%= oque.humanize.downcase %></p>
+<% end %>

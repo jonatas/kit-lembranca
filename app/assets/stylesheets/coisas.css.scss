@@ -1,21 +1,41 @@
 // Place all the styles related to the coisas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.new-coisa, .tag-cloud {
-   position: fixed;
-   bottom: 0;
-}
 .new-coisa {
-  right: 0;
-  background:black;
+  background:white;
   padding: 5px;
 }
 .new-coisa a{
-  color: green !important;
-  font-size: 25px;
+  color: #000080 !important;
+    font-size: 25px;
 }
 
 .big {
   font-size: 150%;
 }
 
+.produtividade {
+  color:#000080 !important;
+  background:white;
+  padding: 5px;
+}
+#h2{
+    color:green;
+}
+.menu{
+ float:right;
+ width: 270px;
+ border:2px solid black;
+ background:white;
+}
+.tag-cloud *{
+  line-height: 110%;
+}
+
+.tag-cloud a{
+  white-space:nowrap;
+  color: #000080 !important;
+}
+ .produtividade a{
+   color:#000080 !important;
+ }

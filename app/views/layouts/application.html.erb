@@ -7,19 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= yield %>
+<div class="menu">
+<div class="new-coisa">
+<%= link_to '+ Coisa', new_coisa_path %>
+</div>
+<div class="produtividade">
+<%= link_to '+ Ver Produtividade',produtividade_path %>
+<hr>
+</div>
 <div class="tag-cloud">
   <% @tags.each do |tag,coisas| %>
-    <span style="margin: 20px;font-size: <%= 10 + 2 * coisas.size %>px"><%= link_to "#{tag}(#{coisas.size})", mostrar_path("tag"=>tag) %>
+    <span style="margin: 20px;font-size: <%= 10 + coisas.size %>px"><%= link_to "#{tag}(#{coisas.size})", mostrar_path("tag"=>tag) %>
       <ul id="ol_<%= tag%>" style="display:none;">
         <%= render :partial => "tag", :locals => {:coisas => coisas}%>
       </ul>
     </span>
   <% end %>
 </div>
-
-<div class="new-coisa">
-<%= link_to '+ Coisa', new_coisa_path %>
 </div>
+<%= yield %>
+  <div class="nome">
+  </div>
 </body>
 </html>

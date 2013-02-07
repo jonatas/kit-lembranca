@@ -16,18 +16,20 @@ class Meta
               if fator_hora <= 0
                 fator_hora = 0.1
               end
-              7.0 / fator_hora
+              fator_hora.to_f / 7.0
             elsif oque == :esta_semana
-              5.0 / Time.now.wday
+              Time.now.wday.to_f / 5.0
             else
-              Time.now.at_end_of_month.day.to_f / Time.now.day
+              Time.now.day.to_f / Time.now.at_end_of_month.day.to_f 
             end
     meta = METAS[oque]
 
     if fator <= 0
       fator = 1.0/30
     end
-    com_quantos.to_f / meta.to_f / fator
+    x = com_quantos.to_f / meta.to_f / fator
+    puts "#{oque} #{com_quantos.to_f} / #{meta.to_f} / #{fator} = #{x}"
+    x
   end
   def self.show
     METAS.keys.each do |oque|
